@@ -1,0 +1,29 @@
+<div ng-controller="main">
+    <div class="container">
+        <div class="row col-sm-10" id="divActivePlayers">
+            <h3>Live Scoring</h3>
+            <div id="batters">Striker: {{activeplayers.striker}}
+            <br>
+            Non-striker: {{activeplayers.nonstriker}}</div>
+            <div id="bowlers">Bowler: {{activeplayers.bowler}}</div>
+        </div>
+        <div class="row col-sm-10">
+            <h3>Over in progress: {{over.overInProgress}}</h3>
+            <div id="divBalls">
+                <ul class="list-inline">
+                    <li ng-repeat="ball in over.balls track by $index" style="margin-bottom: 5px;"><button class="btn btn-disabled">{{ball}}</button></li>
+                </ul>
+            </div>
+            <div id="divExtras">
+                <span>Extras: {{extras.totalExtras}};</span>
+                <span>Wides: {{extras.totalWides}};</span>
+                <span>No balls: {{extras.totalNoBalls}};</span>
+                <span>Byes: {{extras.totalByes}};</span>
+                <span>Leg Byes: {{extras.totalLegByes}}</span>
+            </div>
+        </div>
+        <div class="row col-sm-10">
+            <h3>Ball in progress: {{ballInProgress}}</h3>
+        </div>
+    </div>
+</div>
