@@ -26,5 +26,11 @@ app.controller('main', function($scope, $routeParams){
     $scope.extras.totalLegByes = 6;
     
     $scope.ballInProgress = 3;
+    $scope.runNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    $scope.ballModifiers = ['Wide', 'No-Ball', 'Dead'];
+    $scope.wicketTypes = ['BLD', 'Caught', 'Caught-C/O', 'Stmpd', 'R/O', 'H/W'];
     
+    $scope.ballUpdate = function(run, modifier, wicket){
+        alert("Run: " + run + "\nModifier: " + modifier + "\nWicket: " + wicket);
+    }
 });

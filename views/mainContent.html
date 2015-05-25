@@ -1,29 +1,43 @@
 <div ng-controller="main">
     <div class="container">
         <div class="row col-sm-10" id="divActivePlayers">
-            <h3>Live Scoring</h3>
+            <h4>Live Scoring</h4>
             <div id="batters">Striker: {{activeplayers.striker}}
             <br>
             Non-striker: {{activeplayers.nonstriker}}</div>
             <div id="bowlers">Bowler: {{activeplayers.bowler}}</div>
         </div>
         <div class="row col-sm-10">
-            <h3>Over in progress: {{over.overInProgress}}</h3>
+            <h4>Over in progress: {{over.overInProgress}}</h4>
             <div id="divBalls">
                 <ul class="list-inline">
-                    <li ng-repeat="ball in over.balls track by $index" style="margin-bottom: 5px;"><button class="btn btn-disabled">{{ball}}</button></li>
+                    <li ng-repeat="ball in over.balls track by $index" style="margin-bottom: 5px;"><button disabled="disabled" class="btn btn-success btn-xs">{{ball}}</button></li>
                 </ul>
             </div>
             <div id="divExtras">
-                <span>Extras: {{extras.totalExtras}};</span>
-                <span>Wides: {{extras.totalWides}};</span>
-                <span>No balls: {{extras.totalNoBalls}};</span>
-                <span>Byes: {{extras.totalByes}};</span>
-                <span>Leg Byes: {{extras.totalLegByes}}</span>
+                <span style="white-space: nowrap;">Extras: {{extras.totalExtras}};</span>
+                <span style="white-space: nowrap;">Wides: {{extras.totalWides}};</span>
+                <span style="white-space: nowrap;">No-balls: {{extras.totalNoBalls}};</span>
+                <span style="white-space: nowrap;">Byes: {{extras.totalByes}};</span>
+                <span style="white-space: nowrap;">Leg-Byes: {{extras.totalLegByes}}</span>
             </div>
         </div>
         <div class="row col-sm-10">
-            <h3>Ball in progress: {{ballInProgress}}</h3>
+            <h4>Ball in progress: {{ballInProgress}}</h4>
+            <div id="divRuns">
+                Run scored: 
+                <ul class="list-inline btn-group">
+                    <li ng-model="radioModel" ng-repeat="run in runNumbers" style="margin-bottom:10px;"><button class="btn btn-info btn-lg" ng-click="ballUpdate(run, runModifier, wkt)">{{run}}</button></li>
+                </ul>
+                Ball modifier: 
+                <ul class="list-inline btn-group">
+                    <li ng-model="radioModel" ng-repeat="mod in ballModifiers" style="margin-bottom: 5px;"><button class="btn btn-warning">{{mod}}</button></li>
+                </ul>
+                Wicket modifier: 
+                <ul class="list-inline btn-group">
+                    <li ng-model="radioModel" ng-repeat="wicket in wicketTypes" style="margin-bottom:15px;"><button class="btn btn-danger" ng-click="wkt=wicket;">{{wicket}}</button></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
