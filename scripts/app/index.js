@@ -17,6 +17,7 @@ app.controller('main', function ($scope, $routeParams) {
     $scope.over = {};
     $scope.over.overInProgress = 1;
     $scope.over.balls = [1, 2, 1, 'W', 'NB', 'Wd', 6, 'NB', 'NB', 1];
+    $scope.over.ballInProgress = 3;
     
     $scope.extras = {};
     $scope.extras.totalExtras = 10;
@@ -25,7 +26,7 @@ app.controller('main', function ($scope, $routeParams) {
     $scope.extras.totalByes = 2;
     $scope.extras.totalLegByes = 6;
     
-    $scope.ballInProgress = 3;
+    
     $scope.runNumbers = [5, 6, 4, 3, 2, 1, 0];
     $scope.ballModifiers = ['Wide', 'No-Ball', 'Dead'];
     $scope.wicketTypes = ['Bld', 'St', 'H/W', 'CT', 'CT-C/o', 'R/O-strk', 'R/O-nstrk'];
@@ -37,5 +38,8 @@ app.controller('main', function ($scope, $routeParams) {
     
     $scope.ballUpdate = function () {
         alert("Run: " + this.radio.runsRadio + "\nModifier: " + this.radio.ballModifierRadio + "\nWicket: " + this.radio.wktModifierRadio);
+        $scope.radio.runsRadio = null
+        $scope.radio.ballModifierRadio = null;
+        $scope.radio.wktModifierRadio = null;
     };
 });

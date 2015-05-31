@@ -1,6 +1,6 @@
 <div ng-controller="main">
     <div class="container">
-        <div class="row col-sm-10" id="divActivePlayers">
+        <div class="row col-sm-8" id="divActivePlayers">
             <h4>Live Scoring</h4>
             <div id="batters">Striker: {{activeplayers.striker}}
             <br>
@@ -8,7 +8,7 @@
             <div id="bowlers">Bowler: {{activeplayers.bowler}}</div>
         </div>
         <form novalidate class="simple-form">
-        <div class="row col-sm-10 col-md-10">
+        <div class="row col-sm-8 col-md-8">
             <h4>Over in progress: {{over.overInProgress}}</h4>
                     <div id="divBalls">
                         <ul class="list-inline">
@@ -23,22 +23,21 @@
                         <span style="white-space: nowrap;">Leg-Byes: {{extras.totalLegByes}}</span>
                     </div>
                 </div>
-                <div class="row col-sm-10 col-md-10">
-                    <h4>Ball in progress: {{ballInProgress}}</h4>
+                <div class="row col-sm-8 col-md-8">
+                    <h4>In progress: <button style="margin-right: 25px;" type="button" class="btn btn-success" ng-click="ballUpdate()">Ball {{over.ballInProgress}} done</button> <br></h4>
                     <div id="divRuns">
-                        Run scored: {{runsRadio}}
+                        Run scored: {{radio.runsRadio}} <br>
                         <div class="btn-group">
-                            <label ng-repeat="run in runNumbers" style="margin-bottom:10px;" ng-model="radio.runsRadio" btn-radio="'{{run}}'" class="btn btn-info btn-lg" uncheckable>{{run}}</label>
-                            <label style="float:right; margin-right: 10px;" type="button" class="btn btn-success btn-lg" ng-click="ballUpdate()">Done</label>
+                            <button ng-repeat="run in runNumbers" style="margin-bottom:10px;" ng-model="radio.runsRadio" btn-radio="'{{run}}'" class="btn btn-info btn-lg" uncheckable>{{run}}</button>
                         </div>
-                        Ball modifier: {{ballModifierRadio}} <br> 
+                        <br>
+                        Ball modifier: {{radio.ballModifierRadio}} <br> 
                         <ul class="list-inline">
                             <li ng-repeat="mod in ballModifiers" style="margin-bottom: 5px;"><button ng-model="radio.ballModifierRadio" btn-radio="'{{mod}}'" class="btn btn-warning" uncheckable>{{mod}}</button></li>
                         </ul>
-                        <br>
-                        Wicket modifier: {{wktModifierRadio}} <br> 
-                        <div class="btn-group">
-                            <label ng-repeat="wicket in wicketTypes" style="margin-bottom:15px;" class="btn btn-danger" ng-model="radio.wktModifierRadio" btn-radio="'{{wicket}}'" uncheckable>{{wicket}}</label>
+                        Wicket modifier: {{radio.wktModifierRadio}} <br> 
+                        <div>
+                            <button ng-repeat="wicket in wicketTypes" style="margin-bottom:15px; margin-right: 5px;" class="btn btn-danger" ng-model="radio.wktModifierRadio" btn-radio="'{{wicket}}'" uncheckable>{{wicket}}</button>
                         </div>
                     </div>
                 </div>
